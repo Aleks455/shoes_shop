@@ -4,29 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Menu extends Model
 {
     use HasFactory;
     
-    public $home = [
-        'name' => 'Home',
-        'route' => 'home'
-    ];
-
-    public $product = [
-        'name' => 'Products',
-        'route' => 'products'
-    ];
-
-    public $contact = [
-        'name' => 'Contact',
-        'route' => 'contact'
-    ];
-
     public function getMenu()
     {
-        $meni = [$this->home, $this->product, $this->contact];
-        return $meni;
+        $result = DB::table('menu')
+        ->select('name', 'route')
+        ->orderBy('order')
+        ->get();
+
+        return $result;
     }
 }

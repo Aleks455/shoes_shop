@@ -13,6 +13,6 @@ class MainController extends Controller
     public function __construct()
     {
         $this->menuModel = new Menu();
-        $this->data['meni'] = $this->menuModel->getMenu();
+        $this->data['menu'] = $this->menuModel->getMenu();
     }
 }
