@@ -8,6 +8,6 @@ class ContactController extends MainController
 {
     public function index()
     {
-        return view('pages.main.contact', ['data' => $this->data]);
+        return view('pages.main.contact', $this->data);
     }
 }

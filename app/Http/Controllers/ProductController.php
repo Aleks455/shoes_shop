@@ -21,17 +21,15 @@ class ProductController extends MainController
         $result = $products->selectProducts();
         $this->data['products'] = $result;
 
-        return view('pages.products.index', ['data' => $this->data]);
+        return view('pages.products.index', $this->data);
     }
 
     public function show($id)
     {
         $product = Product::findOrFail($id);
+        $this->data['product'] = $product;
 
-        return view('pages.products.show', [
-            'data' => $this->data,
-            'product' => $product
-        ]);
+        return view('pages.products.show', $this->data);
     }
 
 }

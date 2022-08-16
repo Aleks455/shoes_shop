@@ -27,7 +27,7 @@
 			@php
 				$i = 1;
 			@endphp
-			@foreach ($data['categories'] as $category )
+			@foreach ($categories as $category )
 				<li class="list-group-item">
 					<input type="checkbox" name="options" id="opt{{ $i }}" /> {{ $category->name }}
 				</li>
@@ -43,8 +43,8 @@
       <div class="col-lg-9">
 
         <div class="row">
-			@foreach ($data['products'] as $product)
-				@include('components.shopping-card', ['description' => false])
+			@foreach ($products as $product)
+				@include('pages.components.shopping-card', ['description' => false])
 			@endforeach
         </div>
         <!-- /.row -->

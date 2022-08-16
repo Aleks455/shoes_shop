@@ -1,5 +1,5 @@
-@include('components.header')
+@include('layout.components.header')
 
 @yield('container')
 
-@include('components.footer')
+@include('layout.components.footer')

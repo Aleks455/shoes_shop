@@ -21,6 +21,6 @@ class HomeController extends MainController
         $result = $this->productModel->selectProducts();
         $this->data['products'] = $result;
 
-        return view('pages.main.home', ['data' => $this->data]);
+        return view('pages.main.home', $this->data);
     }
 }

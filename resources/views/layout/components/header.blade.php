@@ -29,7 +29,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          @foreach ($data['menu'] as $list)
+          @foreach ($menu as $list)
             <li class="nav-item @if (request()->routeIs($list->route)) active @endif">
               <a class="nav-link" href="{{ route($list->route) }}">{{ $list->name }}</a>
             </li>
