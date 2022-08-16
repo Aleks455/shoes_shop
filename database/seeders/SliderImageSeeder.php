@@ -15,15 +15,25 @@ class SliderImageSeeder extends Seeder
      */
     public function run()
     {
-        $images = [
-            'https://image.shutterstock.com/image-photo/white-flying-cotton-tshirt-blue-600w-1912350304.jpg',
-            'https://image.shutterstock.com/image-illustration/clothes-on-grunge-background-shelf-600w-1867100056.jpg',
-            'https://image.shutterstock.com/image-illustration/clothes-on-grunge-background-shelf-600w-1923331256.jpg',
+       
+        $data = [
+            [
+                'image' => '1110x350sl1',
+                'alt' => 'First slide',
+            ],
+            [
+                'image' => '1110x350sl2',
+                'alt' => 'Second slide',
+            ],
+            [
+                'image' => '1110x350sl3',
+                'alt' => 'Third slide',
+            ]
         ];
 
-        foreach ($images as $image)
+        foreach ($data as $row)
         {
-            DB::insert('insert into slider_images (id, name) values (?, ?)', [null, $image]);
+            DB::insert('insert into slider_images (id, name, alt) values (?, ?, ?)', [null, $row['image'], $row['alt']]);
         }
     }
 }

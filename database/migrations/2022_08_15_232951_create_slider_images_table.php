@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('slider_images', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('alt');
             $table->timestamps();
         });
     }

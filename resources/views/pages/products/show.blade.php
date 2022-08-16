@@ -16,7 +16,7 @@
     <div class="container vh-100">
         <div class="row d-flex justify-content-center">
             <div class="col-sm-12 text-center">
-                <div class="mt-3">
+                <div class="mt-3">     
                     <h1>{{ $product->name }}</h1>
                     <hr>
                 </div>

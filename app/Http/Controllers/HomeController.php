@@ -8,15 +8,19 @@ use Illuminate\Http\Request;
 
 class HomeController extends MainController
 {
+    private $productModel;
+    private $sliderModel;
+
     public function index()
     {
-        $slider_images = new SliderImage();
-        $slider_images = $slider_images->getSliderImages();
+        $this->sliderModel = new SliderImage();
+        $slider_images = $this->sliderModel->getSliderImages();
         $this->data['slider_images'] = $slider_images;
-        $products = new Product();
-        $result = $products->selectProducts();
+
+        $this->productModel = new Product();
+        $result = $this->productModel->selectProducts();
         $this->data['products'] = $result;
 
-        return view('home', ['data' => $this->data]);
+        return view('pages.main.home', ['data' => $this->data]);
     }
 }

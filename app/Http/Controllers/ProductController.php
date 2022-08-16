@@ -21,16 +21,16 @@ class ProductController extends MainController
         $result = $products->selectProducts();
         $this->data['products'] = $result;
 
-        return view('products', ['data' => $this->data]);
+        return view('pages.products.index', ['data' => $this->data]);
     }
 
     public function show($id)
     {
         $product = Product::findOrFail($id);
-        $data['product'] = $product;
 
-        return view('show', [
+        return view('pages.products.show', [
             'data' => $this->data,
+            'product' => $product
         ]);
     }
 
