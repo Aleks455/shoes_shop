@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Product extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    public function selectProducts()
+    protected $table = 'categories';
+
+    public function getCategories()
     {
-        $result = DB::select('select * from products ORDER BY name');
+        $result = DB::select('select * from categories');
         return $result;
     }
-    
+
 }

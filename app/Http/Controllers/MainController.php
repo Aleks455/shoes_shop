@@ -2,31 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    public array $data;
+    public $data;
+    public $menuModel;
 
     public function __construct()
     {
-        $this->data['meni'] = [
-            [
-                'name' => 'Home',
-                'route' => 'home'
-            ],
-            [
-                'name' => 'Products',
-                'route' => 'products'
-            ],
-            [
-                'name' => 'Contact',
-                'route' => 'contact'
-            ],
-            [
-                'name' => 'Testing',
-                'route' => 'testing'
-            ],
-        ];
+        $this->menuModel = new Menu();
+        $this->data['meni'] = $this->menuModel->getMenu();
     }
 }

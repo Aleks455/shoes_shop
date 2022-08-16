@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ProductController::class, 'index'])->name('home');
-Route::get('products', [ProductController::class, 'productPage'])->name('products');
-Route::get('contact', [ProductController::class, 'contactPage'])->name('contact');
-Route::get('testing', [ProductController::class, 'testing'])->name('testing');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('products', [ProductController::class, 'index'])->name('products');
+Route::get('products/{id}', [ProductController::class, 'show'])->name('show');
+
+Route::get('contact', [ContactController::class, 'index'])->name('contact');
+

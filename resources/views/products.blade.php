@@ -24,15 +24,17 @@
       <div class="col-lg-3">
 
         <ul class="list-group">
-          <li class="list-group-item">
-            <input type="checkbox" name="options" id="opt1" /> Option 1
-          </li>
-          <li class="list-group-item">
-            <input type="checkbox" name="options" id="opt2" /> Option 2
-          </li>
-          <li class="list-group-item">
-            <input type="checkbox" name="options" id="opt3" /> Option 3
-          </li>
+			@php
+				$i = 1;
+			@endphp
+			@foreach ($data['categories'] as $category )
+				<li class="list-group-item">
+					<input type="checkbox" name="options" id="opt{{ $i }}" /> {{ $category->name }}
+				</li>
+				@php
+					$i++;
+				@endphp
+			@endforeach
         </ul>
 
       </div>
